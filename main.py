@@ -4,7 +4,7 @@ import base64
 import matplotlib.pyplot as plt 
 import numpy as np 
 import yfinance as yf 
-from selenium import webdriver
+import webdriver
 import time
 
 
