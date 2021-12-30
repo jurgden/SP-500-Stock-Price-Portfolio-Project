@@ -83,3 +83,8 @@ if st.button('Show Plots'):
   for i in list(df_selected_sector.Symbol)[:num_company]:
     price_plot(i)
 
+tickerData = yf.ticker(df_selected_sector.Symbol)
+
+tickerDF = tickerData.history(period='1d', start='2010-12-25', end='2021-12-25')
+
+st.line_chart(tickerDF.Close)
