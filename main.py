@@ -83,4 +83,5 @@ if st.button('Show Plots'):
   st.header('Stock Closing Price')
   for i in list(df_selected_sector.Symbol)[:num_company]:
     col1, col2 = st.columns(2)
-    col1.write(price_plot(i))
+    col1.write(price_plot(i)[0])
+    col2.write(price_plot(i)[1])
