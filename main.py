@@ -77,7 +77,7 @@ def price_plot(symbol):
 
 if st.button('Show Plots'):
   st.header('Stock Closing Price')
-  for i in list(df_selected_sector.Symbol)
+  for i in list(df_selected_sector.Symbol):
     period = i.history(period='1d', start='2010-12-25', end='2021-12-25')
     st.line_chart(period.Close)
 
