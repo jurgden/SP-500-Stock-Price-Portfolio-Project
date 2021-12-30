@@ -80,6 +80,6 @@ if st.button('Show Plots'):
   st.header('Stock Closing Price')
   for i in list(df_selected_sector.Symbol)[:num_company]:
     for symbol in i:
-      print(str(tickerDf_{}).format(i))
+      print("tickerDf{}".format(i))
       st.line_chart(symbol.Close)
 
