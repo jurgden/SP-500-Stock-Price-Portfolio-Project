@@ -76,12 +76,6 @@ def price_plot(symbol):
 
 
 
-st.write('# The Graphs')
-st.line_chart(tickerDf.Close)
-st.write('# The Volume')
-st.line_chart(tickerDf.Volume)
-
-
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
 
 if st.button('Show Plots'):
