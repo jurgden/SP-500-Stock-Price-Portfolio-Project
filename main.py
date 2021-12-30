@@ -79,5 +79,6 @@ if st.button('Show Plots'):
   num_company = st.slider('Number of Companies', 1, 5)
   st.header('Stock Closing Price')
   for i in list(df_selected_sector.Symbol)[:num_company]:
-    st.line_chart(i.Close)
+    period = i.history(period='1d', start='2010-12-25', end='2021-12-25')
+    st.line_chart(period.Close)
 
