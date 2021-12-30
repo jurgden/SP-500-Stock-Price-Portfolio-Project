@@ -74,6 +74,16 @@ def price_plot(symbol):
   plt.ylabel('Closing Price', fontweight='bold')
   return st.pyplot()
 
+
+tickerData = yf.Ticker(f'tickerSymbol_{data.group_by}')
+tickerDf = tickerData.history(period='1d', start='2010-12-25', end='2021-12-25')
+
+st.write('# The Graphs')
+st.line_chart(tickerDf.Close)
+st.write('# The Volume')
+st.line_chart(tickerDf.Volume)
+
+
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
 
 if st.button('Show Plots'):
