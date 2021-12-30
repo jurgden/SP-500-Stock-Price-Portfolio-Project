@@ -45,6 +45,8 @@ def filedownload(df):
   csv = df.to_csv(index=False)
   b64 = base64.b64encode(csv.encode()).decode() # does the string/byte conversion
   href = f'<a href="data:file/csv;base64,{b64}"download="SP500.csv">Download CSV File </a>'
+  if href == '':
+    href = "Sorry, No sector selected!"
   return href
 
 st.markdown(filedownload(df_selected_sector), unsafe_allow_html=True)
@@ -59,7 +61,6 @@ data = yf.download(
   prepost = True,
   threads = True,
   proxy = None
-  
   )
 
 def price_plot(symbol):
