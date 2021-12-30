@@ -85,7 +85,7 @@ if st.button('Show Plots'):
 
 def helper_data():
   for i in list(df_selected_sector.Symbol)[:num_company]:
-    return i
+    return str(i)
 
 tickerData = yf.ticker(helper_data())
 
