@@ -39,6 +39,11 @@ st.header('Display Companies in Selected Sector')
 st.write('Data Dimension: ' + str(df_selected_sector.shape[0]) + ' rows and ' + str(df_selected_sector.shape[1]) + ' columns.')
 st.dataframe(df_selected_sector)
 
+# Links to the Faang Spotlight
+faang_spotlight = "https://share.streamlit.io/jurgden/faang-streamlit-app/main/main.py"
+
+st.markdown(faang_spotlight, unsafe_allow_html=True)  
+
 # Download S&P500 dataframe
 
 def filedownload(df):
