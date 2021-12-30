@@ -74,12 +74,10 @@ def price_plot(symbol):
   plt.ylabel('Closing Price', fontweight='bold')
   return st.pyplot()
 
-num_company = st.slider('Number of Companies', 1, 5)
 
 if st.button('Show Plots'):
+  num_company = st.slider('Number of Companies', 1, 5)
   st.header('Stock Closing Price')
   for i in list(df_selected_sector.Symbol)[:num_company]:
-    for symbol in i:
-      print("tickerDf{}".format(i))
-      st.line_chart(symbol.Close)
+    st.line_chart(i.Close)
 
