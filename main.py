@@ -25,18 +25,8 @@ def load_table_one():
   df = html[0]
   return df
 
-df_lto = load_table_one()
-sector_lto = df_lto.groupby('GICS Sector')
-
-@st.cache
-def load_table_two():
-  url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
-  html = pd.read_html(url, header = 0)
-  df = html[1]
-  return df
-
-df_ltt = load_table_two()
-sector_ltt = df_ltt.groupby('GICS Sector')
+df = load_table_one()
+sector = df.groupby('GICS Sector')
 
 # Sidebar - Sector selection
 sorted_sector_unique = sorted( df['GICS Sector'].unique() )
