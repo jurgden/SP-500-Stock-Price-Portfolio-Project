@@ -87,7 +87,7 @@ def helper_data():
   for i in list(df_selected_sector.Symbol)[:num_company]:
     return str(i)
 
-tickerData = yf.ticker(helper_data())
+tickerData = yf.ticker(str(i))
 
 tickerDF = tickerData.history(period='1d', start='2010-12-25', end='2021-12-25')
 
