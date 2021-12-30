@@ -75,7 +75,7 @@ def price_plot(symbol):
   return st.pyplot()
 
 
-tickerData = yf.Ticker(f'tickerSymbol_{data.group_by}')
+tickerData = yf.Ticker(f'tickerSymbol_{symbol}')
 tickerDf = tickerData.history(period='1d', start='2010-12-25', end='2021-12-25')
 
 st.write('# The Graphs')
