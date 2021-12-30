@@ -19,13 +19,23 @@ st.sidebar.header('User Input Features')
 # Web scraping of S&P 500 Data
 
 @st.cache
-def load_data():
+def load_table_one():
   url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
   html = pd.read_html(url, header = 0)
-  df = html[0, 1]
+  df = html[0]
   return df
 
-df = load_data()
+df = load_table_one()
+sector = df.groupby('GICS Sector')
+
+@st.cache
+def load_table_two():
+  url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
+  html = pd.read_html(url, header = 0)
+  df = html[1]
+  return df
+
+df = load_table_two()
 sector = df.groupby('GICS Sector')
 
 # Sidebar - Sector selection
