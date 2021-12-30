@@ -25,8 +25,8 @@ def load_table_one():
   df = html[0]
   return df
 
-df = load_table_one()
-sector = df.groupby('GICS Sector')
+df_lto = load_table_one()
+sector_lto = df_lto.groupby('GICS Sector')
 
 @st.cache
 def load_table_two():
@@ -35,8 +35,8 @@ def load_table_two():
   df = html[1]
   return df
 
-df = load_table_two()
-sector = df.groupby('GICS Sector')
+df_ltt = load_table_two()
+sector_ltt = df_ltt.groupby('GICS Sector')
 
 # Sidebar - Sector selection
 sorted_sector_unique = sorted( df['GICS Sector'].unique() )
