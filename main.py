@@ -2,9 +2,8 @@ import streamlit as st
 import pandas as pd 
 import base64
 import matplotlib.pyplot as plt 
-import numpy as np 
 import yfinance as yf 
-import webdriver
+from selenium import webdriver
 import time
 
 
@@ -17,33 +16,27 @@ def get_driver():
   options.add_experimental_option('excludeSwitches', ['enable-automation'])
   options.add_argument('disable-blink-features=AutomationControlled')
   driver = webdriver.Chrome(options=options)
-  driver.get('https://automated.pythonanywhere.com/')
+  driver.get('https://www.google.com/search?q=s+and+p+500+&sxsrf=AOaemvJV9WF6iUh-JFirMOpOO42SyZV1Gw%3A1640902556053&ei=nC_OYb_XAtertQaA-YWoCA&ved=0ahUKEwi_lduvxoz1AhXXVc0KHYB8AYUQ4dUDCA4&uact=5&oq=s+and+p+500+&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyCwgAEIAEELEDEIMBMgsIABCABBCxAxCDATIICAAQgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BwgjELADECc6BwgAEEcQsAM6BwgAELADEEM6BggAEBYQHkoECEEYAEoECEYYAFCFBljwCWCbDmgBcAJ4AIABhwGIAcUDkgEDMS4zmAEAoAEByAEKwAEB&sclient=gws-wiz')
   return driver
-
-def clean_text(text):
-  """Extract onlt the temperature from the text"""
-  output = float(text.split(': ')[1])
-  return str(output)
 
 def main_one():
   driver = get_driver()
-  time.sleep(2)
+  time.sleep(1)
   element = driver.find_element(by='xpath', value='/html/body/div[7]/div/div[10]/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/div[2]/div/div/div/div/div/div/div/g-card-section/div/g-card-section/div[2]/div[1]/span[1]/span/span')
-  return clean_text(element.text)
+  return element.text
 
 def main_two():
   driver = get_driver()
-  time.sleep(2)
+  time.sleep(1)
   element = driver.find_element(by='xpath', value='/html/body/div[7]/div/div[10]/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/div[2]/div/div/div/div/div/div/div/g-card-section/div/g-card-section/div[2]/div[1]/span[2]/span[1]')
-  return clean_text(element.text)
+  return element.text
 
 pts = print(main_one())
 
-delta = print(main_two())
+delta_s = print(main_two())
 
-col1 = st.columns(1)
-
-col1.metric("S&P 500 Pts.", pts, delta)
+st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+st.metric(label ="S&P 500 Pts.", value=str(pts), delta=str(delta_s))
 
 
 

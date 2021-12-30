@@ -8,7 +8,6 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 streamlit = "^1.3.1"
 matplotlib = "^3.5.1"
-seaborn = "^0.11.2"
 yfinance = "^0.1.67"
 selenium = "^4.1.0"
 
