@@ -75,9 +75,10 @@ def price_plot(symbol):
 
 
 
-num_company = st.slider('Number of Companies', 1, 10)
+
 
 if st.button('Show Plots'):
+  num_company = st.slider('Number of Companies', 1, 10)
   st.header('Stock Closing Price')
   for i in list(df_selected_sector.Symbol)[:num_company]:
     price_plot(i)
