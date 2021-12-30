@@ -58,7 +58,7 @@ data = yf.download(
   auto_adjust = True,
   prepost = True,
   threads = True,
-  proxy = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+  proxy = None
   )
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
